@@ -1,0 +1,28 @@
+﻿  AssetManager.cpp
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Collision.cpp
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Game.cpp
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(114,49): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(116,117): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(116,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(116,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\ECS.h(91,33): warning C4244: 'argument': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(114,11): message : see reference to function template instantiation 'T &Entity::addComponent<UILabel,float,float,const char(&)[30],const char(&)[7],SDL_Color&>(float &&,float &&,const char (&)[30],const char (&)[7],SDL_Color &)' being compiled
+          with
+          [
+              T=UILabel
+          ]
+  Map.cpp
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  BirchEngineMenu.vcxproj -> C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\x64\Debug\BirchEngineMenu.exe
