@@ -49,11 +49,16 @@ public:
 
 class Button {
 public:
-	Button(Manager& p_manager,int posX, int posY, std::string text) : Bmanager(p_manager), x(posX), y(posY), text(text), bg(Bmanager), tag(Bmanager) {
+	Button(Manager& p_manager,int posX, int posY, std::string text/*, ListBox* p_parent = nullptr*/) : Bmanager(p_manager), x(posX), y(posY), text(text), bg(Bmanager), tag(Bmanager)/*, parent(p_parent)*/ {
 		fontID = "vgafix";
 		color = { 255, 255, 255, 255 };
 
 	}
+
+	//Button(Manager& p_manager, int posX, int posY, std::string text, ListBox* p_parent = nullptr) : Bmanager(p_manager), x(posX), y(posY), text(text), bg(Bmanager), tag(Bmanager), parent(p_parent) {
+	//	fontID = "vgafix";
+	//	color = { 255, 255, 255, 255 };
+	//}
 
 	~Button(){}
 
@@ -73,6 +78,12 @@ public:
 		tag.draw();
 	}
 
+	//void action() {
+	//	if (effect.compare("quit") == 0) {
+	//		Game::isRunning = false;
+	//	}
+	//}
+
 
 	int x;
 	int y;
@@ -82,7 +93,8 @@ public:
 	ButtonText tag;
 	ButtonBG bg;
 	SDL_Color color;
-	
+	std::string effect;
+	/*ListBox* parent;*/
 	
 };
 

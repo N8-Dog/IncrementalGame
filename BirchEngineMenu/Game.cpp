@@ -37,6 +37,8 @@ Button boutonMarde(manager, 10, 30, "1$ /sec.");
 
 GroupBox liste(manager, 10, 400 );
 
+GroupBox listeOwned(manager, 10, 700);
+
 
 
 Game::Game(const char* p_title, int p_width, int p_height, bool fsc) : title(p_title), width(p_width), height(p_height), fullscreen(fsc){
@@ -93,6 +95,7 @@ void Game::init() {
 	assets->AddTexture("PurpleKush", "assets/MAUVE.png");
 	//assets->AddTexture("projectile", "assets/proj.png");
 	assets->AddTexture("King Dude", "assets/King Dude.png");
+	assets->AddTexture("Jaune", "assets/JAUNE.png");
 	map = new Map("terrain", 3, 32);
 
 	map->LoadMap("assets/map.map", 25, 20);
@@ -122,6 +125,7 @@ void Game::init() {
 	mainTitlebg.addComponent<SpriteComponent>("Noir");
 
 	label3.addComponent<SpriteComponent>("Noir");
+
 	
 	//bgamarde.addComponent<TransformComponent>(10,30,50,50,1);
 	//bgamarde.addComponent<SpriteComponent>("Noir");
@@ -138,19 +142,35 @@ void Game::init() {
 		addon->addEntry("Name : " + m_player.availDog.at(i).getName());
 		addon->addEntry("Breed : " + m_player.availDog.at(i).getRace());
 		addon->addEntry("Price : " + std::to_string(m_player.availDog.at(i).getPrice()));
-		addon->addEntry("Price : " + std::to_string(m_player.availDog.at(i).getInc()));
+		addon->addEntry("Pay : " + std::to_string(m_player.availDog.at(i).getInc()) + "$/Sec");
 		//std::string name = m_player.availDog.at(i).getName();
 		//std::string path = "assets/" + name + ".png";
 		//assets->AddTexture(m_player.availDog.at(i).getName(), path.c_str() );
 		//addon->addEntry(name, false);
 		
 		addon->addEntry(m_player.availDog.at(i).getName(), false);
+		addon->addButton<Dog>("Buy", "buy", m_player.availDog.at(i));
 	}
 
 	liste.init();
 
-	
+	for (int i = 0; i < m_player.ownedDog.size(); i++) {
+		ListBox* addon = listeOwned.addList();
+		std::string path = "assets/" + m_player.ownedDog.at(i).getName() + ".png";
+		assets->AddTexture(m_player.ownedDog.at(i).getName(), path.c_str());
+		addon->addEntry("Name : " + m_player.ownedDog.at(i).getName());
+		addon->addEntry("Breed : " + m_player.ownedDog.at(i).getRace());
+		addon->addEntry("Pay : " + std::to_string(m_player.ownedDog.at(i).getInc()));
+		//std::string name = m_player.availDog.at(i).getName();
+		//std::string path = "assets/" + name + ".png";
+		//assets->AddTexture(m_player.availDog.at(i).getName(), path.c_str() );
+		//addon->addEntry(name, false);
 
+		addon->addEntry(m_player.ownedDog.at(i).getName(), false);
+
+	}
+	listeOwned.init();
+	
 	boutonMarde.init();
 }
 
@@ -201,6 +221,7 @@ void Game::update() {
 		boutonMarde.update();
 
 		liste.update();
+		listeOwned.update();
 }
 
 
@@ -237,7 +258,7 @@ void Game::render() {
 	boutonMarde.draw();
 
 	liste.draw();
-	
+	listeOwned.draw();
 	SDL_RenderPresent(renderer);
 }
 void Game::clean() {
@@ -306,6 +327,8 @@ float Game::posY(float coefficient)
 	if (coefficient < 1) return height * coefficient;
 	else return height * (coefficient / 100);
 }
+
+
 
 
 

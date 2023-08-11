@@ -7,6 +7,7 @@ class KeyboardController : public Component {
 public:
 	TransformComponent* transform;
 	SpriteComponent* sprite;
+	//std::vector<Button*> buttonsEffects;
 
 	void init() override
 	{
@@ -71,11 +72,12 @@ public:
 		}
 
 		if (Game::event.type == SDL_MOUSEBUTTONDOWN) {
-			if (Game::event.button.button == SDL_BUTTON_RIGHT) {
-				sprite->setTex("Carl");
-			}
-			else if (Game::event.button.button == SDL_BUTTON_LEFT) {
-				if(Click(Game::startMenu, Game::event)) Game::isRunning = false;
+			if (Game::event.button.button == SDL_BUTTON_LEFT) {
+				//if(Click(Game::startMenu, Game::event)) Game::isRunning = false;
+				//for (auto elem : buttons) {
+				//	if(Click(elem, Game::event))
+				//}
+
 			}
 		}
 
@@ -90,7 +92,28 @@ public:
 			return true;
 		}
 		return false;
-
 	}
+
+	//void addButton(TransformComponent&) {
+	//	SDL_Rect newRect;
+	//	newRect.x = TransformComponent().position.x;
+	//	newRect.y = TransformComponent().position.y;
+	//	newRect.w = TransformComponent().width;
+	//	newRect.h = TransformComponent().height;
+	//	buttons.push_back(newRect);
+	//	buttonsSource.push_back()
+	//}
+
+	//bool Click(const Entity* recA, const SDL_Event& recB) {
+	//	if (
+	//		recA.x + recA.w >= recB.button.x &&
+	//		recB.button.x >= recA.x &&
+	//		recA.y + recA.h >= recB.button.y &&
+	//		recB.button.y >= recA.y
+	//		) {
+	//		return true;
+	//	}
+	//	return false;
+	//}
 
 };

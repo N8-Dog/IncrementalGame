@@ -1,12 +1,13 @@
 #pragma once
 #include "Components.h"
+#include "Game.h"
 #include "../Vector2D.h"
 
 class ListEntry : public Entity {
 public:
 
 
-	ListEntry(Manager& _manager, std::string text, int posX, int posY, bool p_isText) : manager(_manager), text(text), x(posX), y(posY), Entity::Entity(manager), m_isText(p_isText) {
+	ListEntry(Manager& _manager, std::string text, int posX, int posY, bool p_isText) : manager(_manager), text(text), x(posX), y(posY), Entity::Entity(manager), m_isText(p_isText), linkTo(nullptr) {
 
 	}
 
@@ -51,14 +52,14 @@ public:
 		return m_isText;
 	}
 
-
+	ListEntry* linkTo;
 private:
 	int x;
 	int y;
 	Manager& manager;
 	std::string text;
 	bool m_isText;
-
+	
 };
 
 class ListBG : public Entity {
@@ -82,6 +83,8 @@ public:
 };
 
 
+
+
 class ListBox {
 public:
 	ListBox(Manager& p_manager, int posX, int posY) : manager(p_manager), x(posX), y(posY), bg(manager) {
@@ -92,8 +95,17 @@ public:
 
 	~ListBox() {}
 
-	void addEntry(std::string text, bool isText = true) {
+	void addEntry(std::string text, bool isText = true, ListEntry* linkTo =nullptr) {
 		content.push_back(new ListEntry(manager, text, x + w + border, y + h + border, isText));
+		
+	}
+	template <typename T>
+	void addButton(std::string text, std::string action, T& target) {
+		addEntry(text);
+		ListEntry* tmp = content.back();
+		addEntry("Jaune", false);
+		content.back()->linkTo = tmp;
+		Game::addEventSlot<Dog>(content.back()->getComponent<TransformComponent>().position, target, action);
 		
 	}
 
@@ -101,6 +113,7 @@ public:
 
 		int newHeight = border;
 		int newWidth = border;
+		int index = 0;
 		for (auto elem : content) {
 			
 				elem->asgY(newHeight + y);
@@ -111,15 +124,24 @@ public:
 				newHeight += elem->getComponent<UILabel>().getPosition().h + border;
 				}
 				else {
-					elem->addComponent<TransformComponent>(x - 32 + newWidth/2, elem->getY(), 64,64,1);
-					elem->addComponent<SpriteComponent>(elem->getText());
-					newWidth = std::max(elem->getComponent<TransformComponent>().width + (border * 2), w);
-					newHeight += elem->getComponent<TransformComponent>().height + border;
+					if (elem->linkTo == nullptr) {
+						elem->addComponent<TransformComponent>(x - 32 + newWidth / 2, elem->getY(), 64, 64, 1);
+						elem->addComponent<SpriteComponent>(elem->getText());
+						newWidth = std::max(elem->getComponent<TransformComponent>().width + (border * 2), w);
+						newHeight += elem->getComponent<TransformComponent>().height + border;
+					}
+					else {
+						elem->addComponent<TransformComponent>(elem->linkTo->getComponent<UILabel>().getPosition());
+						elem->addComponent<SpriteComponent>(elem->getText());
+						std::cout << "LOLOLOL" << elem->getText() << std::endl;
+						std::iter_swap(content.begin() + (index - 1), content.begin() + index);
+
+					}
+					 
 				}
 				h = newHeight;
 				w = newWidth;
-			
-
+				index++;
 		}
 		
 		bg.init(static_cast<float>(x), static_cast<float>(y), h, w, sc);

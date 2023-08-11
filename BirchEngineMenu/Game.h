@@ -29,6 +29,20 @@ public:
 	float posX(float coefficient);
 	float posY(float coefficient);
 
+	template <typename T>
+	struct eventSlot {
+		eventSlot(SDL_Rect* source, T* destination, std::string action) : source(source), destination(destination), action(action) {}
+		SDL_Rect* source;
+		T* destination;
+		std::string action;
+
+	};
+
+	template <typename T>
+	void addEventSlot(SDL_Rect* source, T* destination, std::string action) {
+		eventSlot<Dog> newSlot(source, destination, action);
+		slotList.emplace_back(newSlot);
+	}
 	
 
 	static SDL_Renderer *renderer;
@@ -47,6 +61,12 @@ public:
 		groupColliders,
 		groupProjectiles
 	};
+
+
+
+
+
+	static std::vector<eventSlot<Dog>> slotList;
 private:
 	
 	SDL_Window* window;
@@ -57,6 +77,7 @@ private:
 	int height;
 	bool fullscreen;
 	Player m_player;
+	std::vector<SDL_Rect*> eventSlot;
 	//Manager* manager;
 	/*Button* bouton;*/
 

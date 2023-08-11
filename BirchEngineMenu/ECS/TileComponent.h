@@ -44,7 +44,7 @@ public:
 
 	void update() override {
 		destRect.x = position.x - static_cast<float>(Game::camera.x);
-		destRect.y = position.y - static_cast<float>(Game::camera.y) ;
+		destRect.y = position.y - static_cast<float>(Game::camera.y);
 	}
 
 };

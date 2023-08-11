@@ -12,7 +12,7 @@ public:
 	std::vector<Dog> ownedDog;
 	std::vector<Dog> availDog;
 	float getInc();
-	
+	void buyDog(int index);
 private:
 	int money;
 	float inc;

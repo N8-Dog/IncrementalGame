@@ -57,7 +57,9 @@ private:
 	GroupBitset groupBitset;
 
 public:
-	Entity(Manager& mManager) : manager(mManager){}
+	Entity(Manager& mManager) : manager(mManager) {
+
+	}
 
 
 	void update()
@@ -105,6 +107,7 @@ public:
 		auto ptr(componentArray[getComponentTypeID<T>()]);
 		return *static_cast<T*>(ptr);
 	}
+
 
 };
 

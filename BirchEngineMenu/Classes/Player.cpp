@@ -30,20 +30,6 @@ Player::Player(): money(100), inc(1)
 		fileInc = fileInc *2;
 	}
 
-	//std::cout << "Owned dog : " << std::endl;
-	//for (auto elem : ownedDog) {
-	//	std::cout << "    name :" << elem.getName() << std::endl;
-	//	std::cout << "    breed :" << elem.getRace() << std::endl;
-	//	std::cout << "    price :" << elem.getPrice() << std::endl;
-	//	std::cout << "    inc :" << elem.getInc() << std::endl;
-	//}
-	//std::cout << "Available dog : " << std::endl;
-	//for (auto elem : availDog) {
-	//	std::cout << "    name :" << elem.getName() << std::endl;
-	//	std::cout << "    breed :" << elem.getRace() << std::endl;
-	//	std::cout << "    price :" << elem.getPrice() << std::endl;
-	//	std::cout << "    inc :" << elem.getInc() << std::endl;
-	//}
 }
 
 Player::~Player()
@@ -63,5 +49,13 @@ int Player::cash() {
 
 float Player::getInc() {
 	return inc;
+}
+
+void Player::buyDog(int index) {
+	if (money > availDog.at(index).getPrice()) {
+		ownedDog.push_back(availDog.at(index));
+		availDog.erase(availDog.begin() + index);
+	}
+	
 }
 
