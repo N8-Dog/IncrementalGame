@@ -1,62 +1,21 @@
-﻿  AssetManager.cpp
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(43,13): error C2275: 'Dog': expected an expression instead of a type
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C3861: 'newSlot': identifier not found
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C2065: 'newSlot': undeclared identifier
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Collision.cpp
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(43,13): error C2275: 'Dog': expected an expression instead of a type
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C3861: 'newSlot': identifier not found
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C2065: 'newSlot': undeclared identifier
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Game.cpp
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(43,13): error C2275: 'Dog': expected an expression instead of a type
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C3861: 'newSlot': identifier not found
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C2065: 'newSlot': undeclared identifier
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(117,52): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(119,120): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(119,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(119,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  GameObject.cpp
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(43,13): error C2275: 'Dog': expected an expression instead of a type
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C3861: 'newSlot': identifier not found
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C2065: 'newSlot': undeclared identifier
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
+﻿  Game.cpp
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(117,49): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(119,117): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(119,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(119,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\ECS.h(93,33): warning C4244: 'argument': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(117,11): message : see reference to function template instantiation 'T &Entity::addComponent<UILabel,float,float,const char(&)[30],const char(&)[7],SDL_Color&>(float &&,float &&,const char (&)[30],const char (&)[7],SDL_Color &)' being compiled
+          with
+          [
+              T=UILabel
+          ]
   main.cpp
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(43,13): error C2275: 'Dog': expected an expression instead of a type
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C3861: 'newSlot': identifier not found
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C2065: 'newSlot': undeclared identifier
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-  Map.cpp
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(43,13): error C2275: 'Dog': expected an expression instead of a type
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C3861: 'newSlot': identifier not found
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C2065: 'newSlot': undeclared identifier
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   TextureManager.cpp
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(43,13): error C2275: 'Dog': expected an expression instead of a type
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C3861: 'newSlot': identifier not found
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(44,25): error C2065: 'newSlot': undeclared identifier
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.h(42,7): message : This diagnostic occurred in the compiler generated function 'void Game::addEventSlot(SDL_Rect *,T *,std::string)'
   Generating Code...
+  BirchEngineMenu.vcxproj -> C:\Users\Natha\Source\Repos\IncrementalGame\x64\Debug\BirchEngineMenu.exe

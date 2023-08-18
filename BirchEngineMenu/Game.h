@@ -7,6 +7,8 @@
 
 class AssetManager;
 
+class ListEntry;
+
 class ColliderComponent;
 
 class Game
@@ -28,21 +30,22 @@ public:
 	static void stopMenu() { m_menu = false; }
 	float posX(float coefficient);
 	float posY(float coefficient);
-
-	template <typename T>
+	void manageInput();
+	bool gameClick(const ListEntry* recA, const SDL_Event& recB);
+	void gameBuyDog(int index);
+	void makePannels();
+	enum actionType{
+		quit,
+		buy
+	};
 	struct eventSlot {
-		eventSlot(SDL_Rect* source, T* destination, std::string action) : source(source), destination(destination), action(action) {}
-		SDL_Rect* source;
-		T* destination;
+		ListEntry* source;
+		int index;
 		std::string action;
-
 	};
 
-	template <typename T>
-	void addEventSlot(SDL_Rect* source, T* destination, std::string action) {
-		eventSlot<Dog> newSlot(source, destination, action);
-		slotList.emplace_back(newSlot);
-	}
+	
+	void addEventSlot(ListEntry* source, int index, actionType action);
 	
 
 	static SDL_Renderer *renderer;
@@ -66,7 +69,7 @@ public:
 
 
 
-	static std::vector<eventSlot<Dog>> slotList;
+	std::vector<eventSlot> slotList;
 private:
 	
 	SDL_Window* window;
@@ -77,7 +80,6 @@ private:
 	int height;
 	bool fullscreen;
 	Player m_player;
-	std::vector<SDL_Rect*> eventSlot;
 	//Manager* manager;
 	/*Button* bouton;*/
 

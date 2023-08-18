@@ -132,44 +132,8 @@ void Game::init() {
 
 	//bouton1.init(white, 10, 30, "La vie c'est comme une beurrée de marde", "vgafix");
 	//bouton11.init();
+	makePannels();
 
-	
-
-	for (int i = 0; i < m_player.availDog.size(); i++) {
-		ListBox* addon = liste.addList();
-		std::string path = "assets/" + m_player.availDog.at(i).getName() + ".png";
-		assets->AddTexture(m_player.availDog.at(i).getName(), path.c_str());
-		addon->addEntry("Name : " + m_player.availDog.at(i).getName());
-		addon->addEntry("Breed : " + m_player.availDog.at(i).getRace());
-		addon->addEntry("Price : " + std::to_string(m_player.availDog.at(i).getPrice()));
-		addon->addEntry("Pay : " + std::to_string(m_player.availDog.at(i).getInc()) + "$/Sec");
-		//std::string name = m_player.availDog.at(i).getName();
-		//std::string path = "assets/" + name + ".png";
-		//assets->AddTexture(m_player.availDog.at(i).getName(), path.c_str() );
-		//addon->addEntry(name, false);
-		
-		addon->addEntry(m_player.availDog.at(i).getName(), false);
-		addon->addButton<Dog>("Buy", "buy", m_player.availDog.at(i));
-	}
-
-	liste.init();
-
-	for (int i = 0; i < m_player.ownedDog.size(); i++) {
-		ListBox* addon = listeOwned.addList();
-		std::string path = "assets/" + m_player.ownedDog.at(i).getName() + ".png";
-		assets->AddTexture(m_player.ownedDog.at(i).getName(), path.c_str());
-		addon->addEntry("Name : " + m_player.ownedDog.at(i).getName());
-		addon->addEntry("Breed : " + m_player.ownedDog.at(i).getRace());
-		addon->addEntry("Pay : " + std::to_string(m_player.ownedDog.at(i).getInc()));
-		//std::string name = m_player.availDog.at(i).getName();
-		//std::string path = "assets/" + name + ".png";
-		//assets->AddTexture(m_player.availDog.at(i).getName(), path.c_str() );
-		//addon->addEntry(name, false);
-
-		addon->addEntry(m_player.ownedDog.at(i).getName(), false);
-
-	}
-	listeOwned.init();
 	
 	boutonMarde.init();
 }
@@ -214,7 +178,7 @@ void Game::update() {
 			cnt = 0;
 		}
 
-		
+		manageInput();
 
 		manager.refresh();
 		manager.update();
@@ -328,9 +292,80 @@ float Game::posY(float coefficient)
 	else return height * (coefficient / 100);
 }
 
+bool Game::gameClick(const ListEntry* recA, const SDL_Event& recB) {
+	if (
+		recA->getComponent<TransformComponent>().position.x + recA->getComponent<TransformComponent>().width >= recB.button.x &&
+		recB.button.x >= recA->getComponent<TransformComponent>().position.x &&
+		recA->getComponent<TransformComponent>().position.y + recA->getComponent<TransformComponent>().height >= recB.button.y &&
+		recB.button.y >= recA->getComponent<TransformComponent>().position.y) {
+		return true;
+	}
+	return false;
+}
+
+void Game::gameBuyDog(int index)
+{
+	m_player.buyDog(index);
+	/*listeOwned.content.at(index)->addEntry(liste.content.at(index));*/
+	/*listeOwned.content.erase(listeOwned.content.begin() + index);*/
+	
+}
+
+void Game::manageInput()
+{
+	if (Game::event.type == SDL_MOUSEBUTTONDOWN) {
+		if (Game::event.button.button == SDL_BUTTON_LEFT) {
+			/*if (gameClick(Game::startMenu, Game::event)) Game::isRunning = false;*/
+			for (int i = 0; i < slotList.size(); i++) {
+				if (gameClick(slotList.at(i).source, Game::event)) gameBuyDog(i);
+			}
+		}
+	}
+}
 
 
+void Game::addEventSlot(ListEntry* source, int index, actionType action) {
+	slotList.emplace_back(eventSlot());
+	eventSlot* brandNew = &slotList.back();
+	brandNew->action = action;
+	brandNew->index = index;
+	brandNew->source = source;
+	/*std::cout << "ajout " << m_player.availDog.at(index).getName() << " a la position (" << source->getComponent<TransformComponent>().position.x << ", " << source->getComponent<TransformComponent>().position.y << std::endl;*/
+}
 
+void Game::makePannels() {
+	for (int i = 0; i < m_player.availDog.size(); i++) {
+		ListBox* addon = liste.addList();
+		std::string path = "assets/" + m_player.availDog.at(i).getName() + ".png";
+		assets->AddTexture(m_player.availDog.at(i).getName(), path.c_str());
+		addon->addEntry("Name : " + m_player.availDog.at(i).getName());
+		addon->addEntry("Breed : " + m_player.availDog.at(i).getRace());
+		addon->addEntry("Price : " + std::to_string(m_player.availDog.at(i).getPrice()));
+		addon->addEntry("Pay : " + std::to_string(m_player.availDog.at(i).getInc()) + "$/Sec");
+		addon->addEntry(m_player.availDog.at(i).getName(), false);
+		addon->addButton("Buy", "buy");
+		ListEntry* btn = addon->content.back();
+		addEventSlot(btn, i, buy);
+	}
 
+	liste.init();
+
+	for (int i = 0; i < m_player.ownedDog.size(); i++) {
+		ListBox* addon = listeOwned.addList();
+		std::string path = "assets/" + m_player.ownedDog.at(i).getName() + ".png";
+		assets->AddTexture(m_player.ownedDog.at(i).getName(), path.c_str());
+		addon->addEntry("Name : " + m_player.ownedDog.at(i).getName());
+		addon->addEntry("Breed : " + m_player.ownedDog.at(i).getRace());
+		addon->addEntry("Pay : " + std::to_string(m_player.ownedDog.at(i).getInc()));
+		//std::string name = m_player.availDog.at(i).getName();
+		//std::string path = "assets/" + name + ".png";
+		//assets->AddTexture(m_player.availDog.at(i).getName(), path.c_str() );
+		//addon->addEntry(name, false);
+
+		addon->addEntry(m_player.ownedDog.at(i).getName(), false);
+
+	}
+	listeOwned.init();
+}
 
 

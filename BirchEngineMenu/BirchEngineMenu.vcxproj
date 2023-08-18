@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\include;C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Classes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Natha\source\repos\SDL2_image-2.6.3\include;C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Classes;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Natha\source\repos\SDL2_image-2.6.3\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -108,12 +108,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_ttf-2.20.2\include;C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\include;C:\Users\Madame_Crawford_V\Desktop\Game\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Natha\source\repos\SDL2_ttf-2.20.2\include;C:\Users\Natha\source\repos\SDL2_image-2.6.3\include;C:\Users\Natha\source\repos\SDL2-2.28.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_ttf-2.20.2\lib\x64;C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\lib\x64;C:\Users\Madame_Crawford_V\Desktop\Game\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Natha\source\repos\SDL2_ttf-2.20.2\lib\x64;C:\Users\Natha\source\repos\SDL2_image-2.6.3\lib\x64;C:\Users\Natha\source\repos\SDL2-2.28.2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

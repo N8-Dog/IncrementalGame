@@ -53,9 +53,13 @@ float Player::getInc() {
 
 void Player::buyDog(int index) {
 	if (money > availDog.at(index).getPrice()) {
+		inc += availDog.at(index).getInc();
+		money -= availDog.at(index).getPrice();
 		ownedDog.push_back(availDog.at(index));
 		availDog.erase(availDog.begin() + index);
+		std::cout << "purchase completed" << std::endl;
 	}
+	else std::cout << "not enough mounaye" << std::endl;
 	
 }
 

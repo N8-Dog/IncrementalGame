@@ -73,11 +73,7 @@ public:
 
 		if (Game::event.type == SDL_MOUSEBUTTONDOWN) {
 			if (Game::event.button.button == SDL_BUTTON_LEFT) {
-				//if(Click(Game::startMenu, Game::event)) Game::isRunning = false;
-				//for (auto elem : buttons) {
-				//	if(Click(elem, Game::event))
-				//}
-
+				if(Click(Game::startMenu, Game::event)) Game::isRunning = false;
 			}
 		}
 

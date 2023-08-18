@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
 	int frameTime;
 
 
-	game = new Game("DogMill", 1280, 1024, false);
+	game = new Game("DogMill", 1000, 1000, false);
 	//game->menu("BarchEngine", 800, 640, false);
 	//while (game->menuRunning()) {
 

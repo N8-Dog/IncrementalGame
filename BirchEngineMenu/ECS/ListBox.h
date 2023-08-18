@@ -99,13 +99,17 @@ public:
 		content.push_back(new ListEntry(manager, text, x + w + border, y + h + border, isText));
 		
 	}
-	template <typename T>
-	void addButton(std::string text, std::string action, T& target) {
+
+	//void addEntry(ListBox* source) {
+	//	content.emplace_back(std::move(source));
+	//}
+
+	void addButton(std::string text, std::string action) {
 		addEntry(text);
 		ListEntry* tmp = content.back();
 		addEntry("Jaune", false);
 		content.back()->linkTo = tmp;
-		Game::addEventSlot<Dog>(content.back()->getComponent<TransformComponent>().position, target, action);
+		/*Game::addEventSlot<Dog>(content.back()->getComponent<TransformComponent>().position, target, action);*/
 		
 	}
 
@@ -155,6 +159,10 @@ public:
 		//tag.update();
 	}
 
+	void reload() {
+		clear();
+		init();
+	}
 
 	void draw() {
 		bg.draw();
@@ -168,6 +176,12 @@ public:
 	void updatePosition(int posX, int posY) {
 		x = posX;
 		y = posY;
+	}
+
+	void clear() {
+		for (int i = 0; i < content.size(); i++) {
+			content.clear();
+		}
 	}
 
 

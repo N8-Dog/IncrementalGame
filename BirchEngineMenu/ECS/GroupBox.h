@@ -55,6 +55,15 @@ public:
 		//tag.draw();
 	}
 
+	void clear() {
+		for (int i = 0; i < content.size(); i++) {
+			content.clear();
+		}
+	}
+	void reload() {
+		clear();
+		init();
+	}
 
 	int x;
 	int y;
