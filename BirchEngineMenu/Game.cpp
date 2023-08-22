@@ -1,13 +1,13 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "Map.h"
+//#include "Map.h"
 #include "ECS/Components.h"
 #include "Vector2D.h"
 #include "Collision.h"
 #include "AssetManager.h"
 #include <sstream>
 
-Map* map;
+//Map* map;
 Manager manager;
 
 
@@ -44,12 +44,7 @@ GroupBox listeOwned(manager, 10, 700);
 Game::Game(const char* p_title, int p_width, int p_height, bool fsc) : title(p_title), width(p_width), height(p_height), fullscreen(fsc){
 	Player Elmer;
 	m_player = Elmer;
-	
 
-		
-		
-	
-	
 }
 Game::~Game() {
 
@@ -96,9 +91,9 @@ void Game::init() {
 	//assets->AddTexture("projectile", "assets/proj.png");
 	assets->AddTexture("King Dude", "assets/King Dude.png");
 	assets->AddTexture("Jaune", "assets/JAUNE.png");
-	map = new Map("terrain", 3, 32);
+	//map = new Map("terrain", 3, 32);
 
-	map->LoadMap("assets/map.map", 25, 20);
+	//map->LoadMap("assets/map.map", 25, 20);
 
 	/*bouton1 = new Button(posX(0.5), posY(0.75), "assets/MAUVE.png", "Je m'en vais chier par la fenetre");
 	*/
@@ -114,9 +109,9 @@ void Game::init() {
 	startMenu = label2.getComponent<UILabel>().getPosition();
 	label3.addComponent<TransformComponent>(startMenu);
 
-	mainTitle.addComponent<UILabel>(posX(50), posY(0.2), "THE EXTRAORDINARY DOG FACTORY", "vgafix", white);
+	mainTitle.addComponent<UILabel>(posX(50), posY(0.2f), "THE EXTRAORDINARY DOG FACTORY", "vgafix", white);
 	
-	mainTitle.getComponent<UILabel>().move((posX(0.5) - (mainTitle.getComponent<UILabel>().getPosition().w / 2)), posY(0.2));
+	mainTitle.getComponent<UILabel>().move((posX(0.5f) - (mainTitle.getComponent<UILabel>().getPosition().w / 2)), posY(0.2f));
 
 	
 	SDL_Rect pt = mainTitle.getComponent<UILabel>().getPosition();
@@ -125,20 +120,13 @@ void Game::init() {
 	mainTitlebg.addComponent<SpriteComponent>("Noir");
 
 	label3.addComponent<SpriteComponent>("Noir");
-
-	
-	//bgamarde.addComponent<TransformComponent>(10,30,50,50,1);
-	//bgamarde.addComponent<SpriteComponent>("Noir");
-
-	//bouton1.init(white, 10, 30, "La vie c'est comme une beurrée de marde", "vgafix");
-	//bouton11.init();
 	makePannels();
 
 	
 	boutonMarde.init();
 }
 
-auto& tiles(manager.getGroup(Game::groupMap));
+//auto& tiles(manager.getGroup(Game::groupMap));
 auto& players(manager.getGroup(Game::groupPlayers));
 //auto& enemies(manager.getGroup(Game::groupEnemies));
 auto& colliders(manager.getGroup(Game::groupColliders));
@@ -306,6 +294,16 @@ bool Game::gameClick(const ListEntry* recA, const SDL_Event& recB) {
 void Game::gameBuyDog(int index)
 {
 	m_player.buyDog(index);
+	//std::cout << "Liste chiens disponibles : ";
+	//for (auto elem : m_player.availDog) std::cout << elem.getName() << ", ";
+	//std::cout << std::endl;
+	//std::cout << "Liste chiens en possession : ";
+	//for (auto elem : m_player.ownedDog) std::cout << elem.getName() << ", ";
+	//std::cout << std::endl;
+	liste.clear();
+	listeOwned.clear();
+	slotList.clear();
+	makePannels();
 	/*listeOwned.content.at(index)->addEntry(liste.content.at(index));*/
 	/*listeOwned.content.erase(listeOwned.content.begin() + index);*/
 	
@@ -334,35 +332,43 @@ void Game::addEventSlot(ListEntry* source, int index, actionType action) {
 }
 
 void Game::makePannels() {
-	for (int i = 0; i < m_player.availDog.size(); i++) {
-		ListBox* addon = liste.addList();
-		std::string path = "assets/" + m_player.availDog.at(i).getName() + ".png";
-		assets->AddTexture(m_player.availDog.at(i).getName(), path.c_str());
-		addon->addEntry("Name : " + m_player.availDog.at(i).getName());
-		addon->addEntry("Breed : " + m_player.availDog.at(i).getRace());
-		addon->addEntry("Price : " + std::to_string(m_player.availDog.at(i).getPrice()));
-		addon->addEntry("Pay : " + std::to_string(m_player.availDog.at(i).getInc()) + "$/Sec");
-		addon->addEntry(m_player.availDog.at(i).getName(), false);
-		addon->addButton("Buy", "buy");
-		ListEntry* btn = addon->content.back();
-		addEventSlot(btn, i, buy);
-	}
+	//if (!liste.content.empty()) liste.clear();
+	int j = 0;
+	for (auto elem : m_player.availDog) {
+	ListBox* addon = liste.addList();
+	std::string path = "assets/" +elem.getName() + ".png";
+	assets->AddTexture(elem.getName(), path.c_str());
+	std::cout << "add texture ok" << std::endl;
+	addon->addEntry("Name : " +elem.getName());
+	std::cout << "add name ok" << std::endl;
+	addon->addEntry("Breed : " + elem.getRace());
+	std::cout << "add breed ok" << std::endl;
+	addon->addEntry("Price : " + std::to_string(elem.getPrice()));
+	std::cout << "add price ok" << std::endl;
+	addon->addEntry("Pay : " + std::to_string(elem.getInc()) + "$/Sec");
+	std::cout << "add pay ok" << std::endl;
+	addon->addEntry(elem.getName(), false);
+	std::cout << "add image ok" << std::endl;
+	addon->addButton("Buy", "buy");
 
+	std::cout << "add button ok" << std::endl;
+	ListEntry* btn = addon->content.back();
+	addEventSlot(btn, j++, buy);
+
+	std::cout << "add eventslot ok" << std::endl;
+}
 	liste.init();
-
-	for (int i = 0; i < m_player.ownedDog.size(); i++) {
+	std::cout << "init ok " << std::endl;
+	int i = 0;
+	//if (!listeOwned.content.empty()) listeOwned.clear();
+	for (auto elem : m_player.ownedDog) {
 		ListBox* addon = listeOwned.addList();
-		std::string path = "assets/" + m_player.ownedDog.at(i).getName() + ".png";
-		assets->AddTexture(m_player.ownedDog.at(i).getName(), path.c_str());
-		addon->addEntry("Name : " + m_player.ownedDog.at(i).getName());
-		addon->addEntry("Breed : " + m_player.ownedDog.at(i).getRace());
-		addon->addEntry("Pay : " + std::to_string(m_player.ownedDog.at(i).getInc()));
-		//std::string name = m_player.availDog.at(i).getName();
-		//std::string path = "assets/" + name + ".png";
-		//assets->AddTexture(m_player.availDog.at(i).getName(), path.c_str() );
-		//addon->addEntry(name, false);
-
-		addon->addEntry(m_player.ownedDog.at(i).getName(), false);
+		std::string path = "assets/" + elem.getName() + ".png";
+		assets->AddTexture(elem.getName(), path.c_str());
+		addon->addEntry("Name : " + elem.getName());
+		addon->addEntry("Breed : " + elem.getRace());
+		addon->addEntry("Pay : " + std::to_string(elem.getInc()));
+		addon->addEntry(elem.getName(), false);
 
 	}
 	listeOwned.init();

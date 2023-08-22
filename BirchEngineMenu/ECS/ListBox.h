@@ -11,8 +11,8 @@ public:
 
 	}
 
-	~ListEntry() {
-	}
+	//~ListEntry() {
+	//}
 
 	void init(SDL_Color color, int posX, int posY, std::string text, std::string font) {
 		//if (isText) {
@@ -138,6 +138,7 @@ public:
 						elem->addComponent<TransformComponent>(elem->linkTo->getComponent<UILabel>().getPosition());
 						elem->addComponent<SpriteComponent>(elem->getText());
 						std::cout << "LOLOLOL" << elem->getText() << std::endl;
+
 						std::iter_swap(content.begin() + (index - 1), content.begin() + index);
 
 					}
@@ -179,9 +180,12 @@ public:
 	}
 
 	void clear() {
-		for (int i = 0; i < content.size(); i++) {
-			content.clear();
+
+		for (auto elem : content) {
+			elem->destroy();
 		}
+			content.clear();
+		
 	}
 
 

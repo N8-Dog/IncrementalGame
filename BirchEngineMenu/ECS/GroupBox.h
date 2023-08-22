@@ -23,7 +23,9 @@ public:
 		int newWidth = border;
 		for (auto elem : content) {
 			elem->updatePosition(newWidth + x, y);
+			std::cout << "update position ok" << std::endl;
 			elem->init();
+			std::cout << "elem init ok" << std::endl;
 			newHeight = std::max(elem->h + (border * 2), h);
 			//if (newWidth > w) {
 			//	w = newWidth;
@@ -57,7 +59,8 @@ public:
 
 	void clear() {
 		for (int i = 0; i < content.size(); i++) {
-			content.clear();
+			content.at(i)->clear();
+			delete content.at(i);
 		}
 	}
 	void reload() {

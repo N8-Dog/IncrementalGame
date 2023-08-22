@@ -1,21 +1,17 @@
-﻿  Game.cpp
-C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(117,49): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(119,117): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(119,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(119,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\ECS.h(93,33): warning C4244: 'argument': conversion from '_Ty' to 'int', possible loss of data
+﻿  AssetManager.cpp
+  Collision.cpp
+  Game.cpp
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(114,117): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(114,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\ECS.h(93,33): warning C4244: 'argument': conversion from '_Ty' to 'int', possible loss of data
           with
           [
               _Ty=float
           ]
-C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(117,11): message : see reference to function template instantiation 'T &Entity::addComponent<UILabel,float,float,const char(&)[30],const char(&)[7],SDL_Color&>(float &&,float &&,const char (&)[30],const char (&)[7],SDL_Color &)' being compiled
+C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Game.cpp(112,11): message : see reference to function template instantiation 'T &Entity::addComponent<UILabel,float,float,const char(&)[30],const char(&)[7],SDL_Color&>(float &&,float &&,const char (&)[30],const char (&)[7],SDL_Color &)' being compiled
           with
           [
               T=UILabel
           ]
-  main.cpp
-  TextureManager.cpp
   Generating Code...
-  BirchEngineMenu.vcxproj -> C:\Users\Natha\Source\Repos\IncrementalGame\x64\Debug\BirchEngineMenu.exe
+  BirchEngineMenu.vcxproj -> C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\x64\Debug\BirchEngineMenu.exe
