@@ -306,9 +306,20 @@ bool Game::gameClick(const ListEntry* recA, const SDL_Event& recB) {
 void Game::gameBuyDog(int index)
 {
 	m_player.buyDog(index);
-	/*listeOwned.content.at(index)->addEntry(liste.content.at(index));*/
-	/*listeOwned.content.erase(listeOwned.content.begin() + index);*/
-	
+	listeOwned.move(liste, index);
+	liste.updateContentPosition();
+	listeOwned.updateContentPosition();
+	std::cout << "available list : ";
+	std::cout << "size : " << liste.content.size();
+	for (auto elem : liste.content) {
+		std::cout << elem->content.at(0)->getText() << ", ";
+	}
+	std::cout << std::endl;
+	std::cout << "owned list : ";
+	for (auto elem : listeOwned.content) {
+		std::cout << elem->content.at(0)->getText() << ", ";
+	}
+	std::cout << std::endl;
 }
 
 void Game::manageInput()

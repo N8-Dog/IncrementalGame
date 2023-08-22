@@ -1,6 +1,21 @@
-﻿  Game.cpp
+﻿  AssetManager.cpp
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(75,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(76,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\ListBox.h(211,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Collision.cpp
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(75,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(76,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\ListBox.h(211,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Game.cpp
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(75,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(76,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\ListBox.h(211,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(117,49): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(119,117): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(119,116): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
@@ -15,7 +30,11 @@ C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Game.cpp(117,11): me
           [
               T=UILabel
           ]
-  main.cpp
-  TextureManager.cpp
+  Map.cpp
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(75,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(76,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(46,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TileComponent.h(47,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\ListBox.h(211,14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
-  BirchEngineMenu.vcxproj -> C:\Users\Natha\Source\Repos\IncrementalGame\x64\Debug\BirchEngineMenu.exe
+  BirchEngineMenu.vcxproj -> C:\Users\Natha\source\repos\IncrementalGame\x64\Debug\BirchEngineMenu.exe
