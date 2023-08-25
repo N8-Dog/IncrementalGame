@@ -71,5 +71,9 @@ public:
 		position.y += velocity.y * speed;
 	}
 
+	void move(int xpos, int ypos) {
+		position.x = xpos;
+		position.y = ypos;
+	}
 
 };

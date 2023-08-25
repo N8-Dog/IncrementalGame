@@ -294,10 +294,27 @@ bool Game::gameClick(const ListEntry* recA, const SDL_Event& recB) {
 void Game::gameBuyDog(int index)
 {
 	m_player.buyDog(index);
+<<<<<<< HEAD
 	makePannels();
 	std::stringstream newinc;
 	newinc << m_player.getInc() << "$/sec";
 	boutonMarde.tag.getComponent<UILabel>().SetLabelText(newinc.str(), "vgafix");
+=======
+	listeOwned.move(liste, index);
+	liste.updateContentPosition();
+	listeOwned.updateContentPosition();
+	std::cout << "available list : ";
+	std::cout << "size : " << liste.content.size();
+	for (auto elem : liste.content) {
+		std::cout << elem->content.at(0)->getText() << ", ";
+	}
+	std::cout << std::endl;
+	std::cout << "owned list : ";
+	for (auto elem : listeOwned.content) {
+		std::cout << elem->content.at(0)->getText() << ", ";
+	}
+	std::cout << std::endl;
+>>>>>>> refs/remotes/origin/main
 }
 
 void Game::manageInput()

@@ -44,10 +44,22 @@ public:
 
 	void update() {
 		for (auto elem : content) {
+
 			elem->update();
 		}
-		//bg.update();
-		//tag.update();
+
+	}
+
+	void updateContentPosition() {
+		int newHeight = border;
+		int newWidth = border;
+		for (auto elem : content) {
+			elem->updateContentPosition(newWidth + x, y);
+			newHeight = std::max(elem->h + (border * 2), h);
+			newWidth += elem->w + border;
+			h = newHeight;
+			w = newWidth;
+		}
 	}
 
 
@@ -61,6 +73,7 @@ public:
 	}
 
 	void clear() {
+<<<<<<< HEAD
 		std::cout << "clear groupe taille : " << content.size() << std::endl;
 		int i = content.size() - 1;
 		while(!content.empty()){
@@ -68,12 +81,25 @@ public:
 			delete content.at(i);
 			content.pop_back();
 			i--;
+=======
+
+
+		for (auto elem: content){
+			delete elem;
+>>>>>>> refs/remotes/origin/main
 		}
+
 	}
 	void reload() {
 		clear();
 		init();
 	}
+
+	void move(GroupBox& p_source, int index) {
+		content.push_back(std::move(p_source.content.at(index)));
+		p_source.content.erase(p_source.content.begin() + index);
+	}
+
 
 	int x;
 	int y;

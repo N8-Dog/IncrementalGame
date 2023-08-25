@@ -181,7 +181,37 @@ public:
 		y = posY;
 	}
 
+	void updateContentPosition(int posX, int posY) {
+		x = posX;
+		y = posY;
+		int newHeight = border;
+		int newWidth = border;
+		int index = 0;
+		for (auto elem : content) {
+			elem->asgX(x);
+			elem->asgY(y);
+			elem->update();
+			if (elem->isText()) {
+				elem->getComponent<UILabel>().move(x,y);
+				newWidth = std::max(elem->getComponent<UILabel>().getPosition().w + (border * 2), w);
+				newHeight += elem->getComponent<UILabel>().getPosition().h + border;
+			}
+			else {
+					elem->getComponent<TransformComponent>().move(x,y);
+					newWidth = std::max(elem->getComponent<TransformComponent>().width + (border * 2), w);
+					newHeight += elem->getComponent<TransformComponent>().height + border;
+			}
+			h = newHeight;
+			w = newWidth;
+		}
+
+
+
+
+	}
+
 	void clear() {
+<<<<<<< HEAD
 		std::cout << "clear liste taille : " << content.size() << std::endl;
 		int i = content.size() - 1;
 		while (!content.empty()) {
@@ -189,6 +219,11 @@ public:
 			delete content.at(i);
 			content.pop_back();
 			i--;
+=======
+		for (int i = content.size(); i > 0; i--) {
+			content.at(i)->destroy();
+			delete content.at(i);
+>>>>>>> refs/remotes/origin/main
 		}
 	}
 
