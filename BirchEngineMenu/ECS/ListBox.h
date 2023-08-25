@@ -93,7 +93,9 @@ public:
 
 	}
 
-	~ListBox() {}
+	~ListBox() {
+
+	}
 
 	void addEntry(std::string text, bool isText = true, ListEntry* linkTo =nullptr) {
 		content.push_back(new ListEntry(manager, text, x + w + border, y + h + border, isText));
@@ -180,12 +182,14 @@ public:
 	}
 
 	void clear() {
-
-		for (auto elem : content) {
-			elem->destroy();
+		std::cout << "clear liste taille : " << content.size() << std::endl;
+		int i = content.size() - 1;
+		while (!content.empty()) {
+			content.at(i)->destroy();
+			delete content.at(i);
+			content.pop_back();
+			i--;
 		}
-			content.clear();
-		
 	}
 
 

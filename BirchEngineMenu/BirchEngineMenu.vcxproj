@@ -73,6 +73,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\include;C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Classes;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\lib\x64;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

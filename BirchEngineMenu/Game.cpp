@@ -294,19 +294,10 @@ bool Game::gameClick(const ListEntry* recA, const SDL_Event& recB) {
 void Game::gameBuyDog(int index)
 {
 	m_player.buyDog(index);
-	//std::cout << "Liste chiens disponibles : ";
-	//for (auto elem : m_player.availDog) std::cout << elem.getName() << ", ";
-	//std::cout << std::endl;
-	//std::cout << "Liste chiens en possession : ";
-	//for (auto elem : m_player.ownedDog) std::cout << elem.getName() << ", ";
-	//std::cout << std::endl;
-	liste.clear();
-	listeOwned.clear();
-	slotList.clear();
 	makePannels();
-	/*listeOwned.content.at(index)->addEntry(liste.content.at(index));*/
-	/*listeOwned.content.erase(listeOwned.content.begin() + index);*/
-	
+	std::stringstream newinc;
+	newinc << m_player.getInc() << "$/sec";
+	boutonMarde.tag.getComponent<UILabel>().SetLabelText(newinc.str(), "vgafix");
 }
 
 void Game::manageInput()
@@ -332,35 +323,26 @@ void Game::addEventSlot(ListEntry* source, int index, actionType action) {
 }
 
 void Game::makePannels() {
-	//if (!liste.content.empty()) liste.clear();
+	if (!slotList.empty()) slotList.clear();
+	if (!liste.content.empty()) liste.clear();
 	int j = 0;
 	for (auto elem : m_player.availDog) {
-	ListBox* addon = liste.addList();
-	std::string path = "assets/" +elem.getName() + ".png";
-	assets->AddTexture(elem.getName(), path.c_str());
-	std::cout << "add texture ok" << std::endl;
-	addon->addEntry("Name : " +elem.getName());
-	std::cout << "add name ok" << std::endl;
-	addon->addEntry("Breed : " + elem.getRace());
-	std::cout << "add breed ok" << std::endl;
-	addon->addEntry("Price : " + std::to_string(elem.getPrice()));
-	std::cout << "add price ok" << std::endl;
-	addon->addEntry("Pay : " + std::to_string(elem.getInc()) + "$/Sec");
-	std::cout << "add pay ok" << std::endl;
-	addon->addEntry(elem.getName(), false);
-	std::cout << "add image ok" << std::endl;
-	addon->addButton("Buy", "buy");
-
-	std::cout << "add button ok" << std::endl;
-	ListEntry* btn = addon->content.back();
-	addEventSlot(btn, j++, buy);
-
-	std::cout << "add eventslot ok" << std::endl;
-}
+		ListBox* addon = liste.addList();
+		std::string path = "assets/" + elem.getName() + ".png";
+		assets->AddTexture(elem.getName(), path.c_str());
+		addon->addEntry("Name : " + elem.getName());
+		addon->addEntry("Breed : " + elem.getRace());
+		addon->addEntry("Price : " + std::to_string(elem.getPrice()));
+		addon->addEntry("Pay : " + std::to_string(elem.getInc()) + "$/Sec");
+		addon->addEntry(elem.getName(), false);
+		addon->addButton("Buy", "buy");
+		ListEntry* btn = addon->content.back();
+		addEventSlot(btn, j++, buy);
+	}
 	liste.init();
 	std::cout << "init ok " << std::endl;
 	int i = 0;
-	//if (!listeOwned.content.empty()) listeOwned.clear();
+	if (!listeOwned.content.empty()) listeOwned.clear();
 	for (auto elem : m_player.ownedDog) {
 		ListBox* addon = listeOwned.addList();
 		std::string path = "assets/" + elem.getName() + ".png";

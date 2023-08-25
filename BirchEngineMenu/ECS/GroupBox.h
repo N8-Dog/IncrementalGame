@@ -10,7 +10,10 @@ public:
 
 	}
 
-	~GroupBox() {}
+	~GroupBox() {
+
+		
+	}
 
 	ListBox* addList() {
 		content.push_back(new ListBox(manager, x, y));
@@ -58,9 +61,13 @@ public:
 	}
 
 	void clear() {
-		for (int i = 0; i < content.size(); i++) {
+		std::cout << "clear groupe taille : " << content.size() << std::endl;
+		int i = content.size() - 1;
+		while(!content.empty()){
 			content.at(i)->clear();
 			delete content.at(i);
+			content.pop_back();
+			i--;
 		}
 	}
 	void reload() {
