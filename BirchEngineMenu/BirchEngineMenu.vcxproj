@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\include;C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\Classes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Natha\source\repos\SDL2_image-2.6.3\include;C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\Classes;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Natha\source\repos\SDL2_image-2.6.3\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -108,12 +108,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_ttf-2.20.2\include;C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\include;C:\Users\Madame_Crawford_V\Desktop\Game\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Natha\source\repos\SDL2_ttf-2.20.2\include;C:\Users\Natha\source\repos\SDL2_image-2.6.3\include;C:\Users\Natha\source\repos\SDL2-2.28.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_ttf-2.20.2\lib\x64;C:\Users\Madame_Crawford_V\Desktop\Game\Dev\SDL2_image-2.0.1\lib\x64;C:\Users\Madame_Crawford_V\Desktop\Game\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Natha\source\repos\SDL2_ttf-2.20.2\lib\x64;C:\Users\Natha\source\repos\SDL2_image-2.6.3\lib\x64;C:\Users\Natha\source\repos\SDL2-2.28.2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -136,6 +136,7 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Classes\Dog.cpp" />
+    <ClCompile Include="Classes\Toys.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="ECS\ECS.cpp" />
     <ClCompile Include="MainMenu.cpp" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Classes\Dog.h" />
+    <ClInclude Include="Classes\Toys.h" />
     <ClInclude Include="ECS\Animation.h" />
     <ClInclude Include="ECS\Buttons.h" />
     <ClInclude Include="ECS\ColliderComponent.h" />
@@ -167,7 +169,6 @@
     <ClInclude Include="ECS\UILabel.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Classes\Player.h" />
-    <ClInclude Include="ECS\Slider.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -175,7 +176,48 @@
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\3232.pyxel" />
+    <None Include="assets\map.map" />
+    <None Include="assets\map16x16.map" />
+    <None Include="assets\map32x32.map" />
+    <None Include="assets\pyxel_16x16,map" />
+    <None Include="assets\pyxel_16x16,map.pyxel" />
+    <None Include="assets\vgafix.fon" />
     <None Include="Classes\init.dog" />
+    <None Include="Classes\init.toys" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\24K.png" />
+    <Image Include="assets\Adolf.png" />
+    <Image Include="assets\Ball.png" />
+    <Image Include="assets\Bone.png" />
+    <Image Include="assets\BoutonMauve.png" />
+    <Image Include="assets\BoutonQuit.png" />
+    <Image Include="assets\Carl.png" />
+    <Image Include="assets\ColTex.png" />
+    <Image Include="assets\Croissant.png" />
+    <Image Include="assets\Croissant_idle.png" />
+    <Image Include="assets\Dirt.png" />
+    <Image Include="assets\Donut.png" />
+    <Image Include="assets\Fix.png" />
+    <Image Include="assets\Frisbee.png" />
+    <Image Include="assets\George.png" />
+    <Image Include="assets\Grass.png" />
+    <Image Include="assets\JAUNE.png" />
+    <Image Include="assets\King Dude.png" />
+    <Image Include="assets\Kong.png" />
+    <Image Include="assets\Lucky.png" />
+    <Image Include="assets\MAUVE.PNG" />
+    <Image Include="assets\Player.png" />
+    <Image Include="assets\player_anims.png" />
+    <Image Include="assets\proj.png" />
+    <Image Include="assets\Rope.png" />
+    <Image Include="assets\Skee.png" />
+    <Image Include="assets\terrain_ss.png" />
+    <Image Include="assets\Water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="assets\collisionmap.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

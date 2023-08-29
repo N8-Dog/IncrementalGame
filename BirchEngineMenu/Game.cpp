@@ -40,7 +40,7 @@ GroupBox liste(manager, 10, 400 );
 
 GroupBox listeOwned(manager, 10, 700);
 
-GroupBox listeToys(manager, 10, 1000);
+GroupBox listeToys(manager, 250, 700);
 
 
 Game::Game(const char* p_title, int p_width, int p_height, bool fsc) : title(p_title), width(p_width), height(p_height), fullscreen(fsc){
@@ -127,6 +127,21 @@ void Game::init() {
 	boutonQuit.init();
 	mainTitle.init();
 	boutonMarde.init();
+
+	/*if (!listeToys.content.empty()) listeToys.clear();*/
+	for (auto elem : m_player.availToys) {
+		
+		ListBox* addon = listeToys.addList();
+		std::string path = "assets/" + elem.getName() + ".png";
+		std::cout << "Path : " << path << std::endl;
+		assets->AddTexture(elem.getName(), path.c_str());
+		addon->addEntry(elem.getName());
+		addon->addEntry(std::to_string(elem.getPrice()) + "$");
+		addon->addEntry(std::to_string(elem.getVal()) + "/s");
+		addon->addEntry(elem.getName(), false);
+		addon->addEntry("Buy");
+	}
+	listeToys.init();
 }
 
 //auto& tiles(manager.getGroup(Game::groupMap));
@@ -178,6 +193,7 @@ void Game::update() {
 		liste.update();
 		listeOwned.update();
 		mainTitle.update();
+		listeToys.update();
 }
 
 
@@ -216,7 +232,9 @@ void Game::render() {
 	liste.draw();
 	listeOwned.draw();
 	mainTitle.draw();
+	listeToys.draw();
 	SDL_RenderPresent(renderer);
+	
 }
 void Game::clean() {
 	SDL_DestroyWindow(window);
@@ -364,6 +382,7 @@ void Game::makePannels() {
 		ListBox* addon = listeOwned.addList();
 		std::string path = "assets/" + elem.getName() + ".png";
 		assets->AddTexture(elem.getName(), path.c_str());
+		
 		addon->addEntry("Name : " + elem.getName());
 		addon->addEntry("Breed : " + elem.getRace());
 		addon->addEntry("Pay : " + std::to_string(elem.getInc()));

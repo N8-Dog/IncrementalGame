@@ -1,7 +1,7 @@
-﻿  AssetManager.cpp
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\ECS.h(166,23): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TransformComponent.h(75,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\TransformComponent.h(76,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\ListBox.h(215,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\BirchEngineMenu\ECS\GroupBox.h(80,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  BirchEngineMenu.vcxproj -> C:\Users\Madame_Crawford_V\source\repos\BirchEngineMenu\x64\Debug\BirchEngineMenu.exe
+﻿  Game.cpp
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\ECS.h(166,23): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(75,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\TransformComponent.h(76,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\ListBox.h(215,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Natha\source\repos\IncrementalGame\BirchEngineMenu\ECS\GroupBox.h(80,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  BirchEngineMenu.vcxproj -> C:\Users\Natha\source\repos\IncrementalGame\x64\Debug\BirchEngineMenu.exe
