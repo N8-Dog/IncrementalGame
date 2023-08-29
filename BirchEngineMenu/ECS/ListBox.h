@@ -1,6 +1,6 @@
 #pragma once
 #include "Components.h"
-#include "Game.h"
+#include "../Game.h"
 #include "../Vector2D.h"
 
 class ListEntry : public Entity {
@@ -211,7 +211,6 @@ public:
 	}
 
 	void clear() {
-<<<<<<< HEAD
 		std::cout << "clear liste taille : " << content.size() << std::endl;
 		int i = content.size() - 1;
 		while (!content.empty()) {
@@ -219,11 +218,6 @@ public:
 			delete content.at(i);
 			content.pop_back();
 			i--;
-=======
-		for (int i = content.size(); i > 0; i--) {
-			content.at(i)->destroy();
-			delete content.at(i);
->>>>>>> refs/remotes/origin/main
 		}
 	}
 

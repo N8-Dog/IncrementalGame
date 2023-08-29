@@ -14,7 +14,7 @@ using ComponentID = std::size_t;
 using Group = std::size_t;
 
 inline ComponentID getNewComponentTypeID()
-{
+{ 
 	static ComponentID lastID = 0u;
 	return lastID++;
 }
@@ -52,13 +52,14 @@ private:
 	bool active = true;
 	std::vector<std::unique_ptr<Component>> components;
 
+
 	ComponentArray componentArray;
 	ComponentBitSet componentBitset;
 	GroupBitset groupBitset;
 
 public:
-	Entity(Manager& mManager) : manager(mManager) {
-
+	Entity(Manager& mManager) : manager(mManager){
+		
 	}
 
 
@@ -116,6 +117,7 @@ class Manager
 private:
 	std::vector<std::unique_ptr<Entity>> entities;
 	std::array<std::vector<Entity*>, maxGroups> groupedEntities;
+	int entitiesCount = 0;
 public:
 	void update()
 	{
@@ -152,11 +154,19 @@ public:
 		return groupedEntities[mGroup];
 	}
 
-	Entity& addEntity()
-	{
-		Entity* e = new Entity(*this);
-		std::unique_ptr<Entity> uPtr { e };
-		entities.emplace_back(std::move(uPtr));
-		return *e;
+	//Entity& addEntity()
+	//{
+	//	Entity* e = new Entity(*this);
+	//	std::unique_ptr<Entity> uPtr { e };
+	//	entities.emplace_back(std::move(uPtr));
+	//	return *e;
+	//}
+
+	int getEntityCount() {
+		return entities.size();
+	}
+
+	int newID() {
+		return entitiesCount++;
 	}
 };

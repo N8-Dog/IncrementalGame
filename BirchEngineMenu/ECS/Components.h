@@ -4,7 +4,7 @@
 #include "SpriteComponent.h"
 #include "KeyboardController.h"
 #include "ColliderComponent.h"
-//#include "TileComponent.h"
+#include "Slider.h"
 //#include "ProjectileComponent.h"
 #include "UILabel.h"
 #include "UIButton.h"

@@ -4,7 +4,7 @@
 
 class GroupBox {
 public:
-	GroupBox(Manager& p_manager, int posX, int posY) : manager(p_manager), x(posX), y(posY)/*, bg(manager)*/ {
+	GroupBox(Manager& p_manager, int posX, int posY) : manager(p_manager), x(posX), y(posY)/*, p_slider(nullptr)*/ {
 		fontID = "vgafix";
 		color = { 255, 255, 255, 255 };
 
@@ -38,7 +38,10 @@ public:
 			h = newHeight;
 			w = newWidth;
 		}
-
+		//if (p_slider != nullptr) {
+		//p_slider = new Slider(this, true);
+		//p_slider->init();
+		//}
 		//bg.init(static_cast<float>(x), static_cast<float>(y), h, w, sc);
 	}
 
@@ -73,7 +76,6 @@ public:
 	}
 
 	void clear() {
-<<<<<<< HEAD
 		std::cout << "clear groupe taille : " << content.size() << std::endl;
 		int i = content.size() - 1;
 		while(!content.empty()){
@@ -81,12 +83,7 @@ public:
 			delete content.at(i);
 			content.pop_back();
 			i--;
-=======
 
-
-		for (auto elem: content){
-			delete elem;
->>>>>>> refs/remotes/origin/main
 		}
 
 	}
@@ -113,6 +110,7 @@ public:
 	//ListBG bg;
 	SDL_Color color;
 	std::vector<ListBox*> content;
+	//Slider* p_slider;
 
 
 };

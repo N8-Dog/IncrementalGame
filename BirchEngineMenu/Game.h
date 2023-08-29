@@ -6,6 +6,7 @@
 #include "Classes/Player.h"
 
 class AssetManager;
+class TransformComponent;
 
 class ListEntry;
 
@@ -31,7 +32,7 @@ public:
 	float posX(float coefficient);
 	float posY(float coefficient);
 	void manageInput();
-	bool gameClick(const ListEntry* recA, const SDL_Event& recB);
+	bool gameClick(const TransformComponent* recA, const SDL_Event& recB);
 	void gameBuyDog(int index);
 	void makePannels();
 	enum actionType{
@@ -54,7 +55,7 @@ public:
 	static bool m_menu;
 	static SDL_Rect camera;
 	static AssetManager* assets;
-	static SDL_Rect startMenu;
+
 
 
 	enum groupLabels : std::size_t {

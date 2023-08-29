@@ -13,32 +13,34 @@ Manager manager;
 
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
-SDL_Rect Game::startMenu;
+
 
 SDL_Rect Game::camera = { 0,0,800,640 };
 
 AssetManager* Game::assets = new AssetManager(&manager);
 
-auto& player(manager.addEntity());
-auto& boutonStart(manager.addEntity());
+//auto& player(manager.addEntity());
+//auto& boutonStart(manager.addEntity());
 
 bool Game::isRunning = false;
 bool Game::m_menu = true;
 
-auto& label(manager.addEntity());
-auto& label2(manager.addEntity());
-auto& label3(manager.addEntity());
-auto& mainTitle(manager.addEntity());
-auto& mainTitlebg(manager.addEntity());
+//auto& label(manager.addEntity());
+//auto& label2(manager.addEntity());
+//auto& label3(manager.addEntity());
+//auto& mainTitle(manager.addEntity());
+//auto& mainTitlebg(manager.addEntity());
 
 
 Button boutonMarde(manager, 10, 30, "1$ /sec.");
-
+Button boutonQuit(manager, 400, 10, "Quit");
+Button mainTitle(manager, 400, 150, "The Extraordinary Dog Mill");
 
 GroupBox liste(manager, 10, 400 );
 
 GroupBox listeOwned(manager, 10, 700);
 
+GroupBox listeToys(manager, 10, 1000);
 
 
 Game::Game(const char* p_title, int p_width, int p_height, bool fsc) : title(p_title), width(p_width), height(p_height), fullscreen(fsc){
@@ -85,7 +87,7 @@ void Game::init() {
 	
 	assets->AddTexture("terrain", "assets/terrain_ss.png");
 	assets->AddTexture("Carl", "assets/Carl.png");
-	assets->AddTexture("player", "assets/player_anims.png");
+	//assets->AddTexture("player", "assets/player_anims.png");
 	assets->AddTexture("Noir", "assets/MAUVE.png");
 	assets->AddTexture("PurpleKush", "assets/MAUVE.png");
 	//assets->AddTexture("projectile", "assets/proj.png");
@@ -97,40 +99,41 @@ void Game::init() {
 
 	/*bouton1 = new Button(posX(0.5), posY(0.75), "assets/MAUVE.png", "Je m'en vais chier par la fenetre");
 	*/
-	player.addComponent<TransformComponent>(800.0f, 750.0f, 32, 32, 4);
-	player.addComponent<SpriteComponent>("player", true);
-	player.addComponent<KeyboardController>();
-	player.addComponent<ColliderComponent>("player");
-	player.addGroup(groupPlayers);
+	//player.addComponent<TransformComponent>(800.0f, 750.0f, 32, 32, 4);
+	//player.addComponent<SpriteComponent>("player", true);
+	//player.addComponent<KeyboardController>();
+	//player.addComponent<ColliderComponent>("player");
+	//player.addGroup(groupPlayers);
 	SDL_Color white = { 255, 255, 255, 255 };
 	SDL_Color black = { 0,0,0,0 };
-	label.addComponent<UILabel>(10, 10, "Test string", "vgafix", white);
-	label2.addComponent<UILabel>(550, 10, "Quit", "vgafix", white);
-	startMenu = label2.getComponent<UILabel>().getPosition();
-	label3.addComponent<TransformComponent>(startMenu);
+	//label.addComponent<UILabel>(10, 10, "Test string", "vgafix", white);
+	//label2.addComponent<UILabel>(550, 10, "Quit", "vgafix", white);
+	//startMenu = label2.getComponent<UILabel>().getPosition();
+	//label3.addComponent<TransformComponent>(startMenu);
 
-	mainTitle.addComponent<UILabel>(posX(50), posY(0.2f), "THE EXTRAORDINARY DOG FACTORY", "vgafix", white);
+	//mainTitle.addComponent<UILabel>(posX(50), posY(0.2f), "THE EXTRAORDINARY DOG FACTORY", "vgafix", white);
+	//
+	//mainTitle.getComponent<UILabel>().move((posX(0.5f) - (mainTitle.getComponent<UILabel>().getPosition().w / 2)), posY(0.2f));
+
+	//
 	
-	mainTitle.getComponent<UILabel>().move((posX(0.5f) - (mainTitle.getComponent<UILabel>().getPosition().w / 2)), posY(0.2f));
+	//SDL_Rect pt = mainTitle.getComponent<UILabel>().getPosition();
 
-	
-	SDL_Rect pt = mainTitle.getComponent<UILabel>().getPosition();
+	//mainTitlebg.addComponent<TransformComponent>(pt);
+	//mainTitlebg.addComponent<SpriteComponent>("Noir");
 
-	mainTitlebg.addComponent<TransformComponent>(pt);
-	mainTitlebg.addComponent<SpriteComponent>("Noir");
-
-	label3.addComponent<SpriteComponent>("Noir");
+	//label3.addComponent<SpriteComponent>("Noir");
 	makePannels();
-
-	
+	boutonQuit.init();
+	mainTitle.init();
 	boutonMarde.init();
 }
 
 //auto& tiles(manager.getGroup(Game::groupMap));
-auto& players(manager.getGroup(Game::groupPlayers));
+//auto& players(manager.getGroup(Game::groupPlayers));
 //auto& enemies(manager.getGroup(Game::groupEnemies));
-auto& colliders(manager.getGroup(Game::groupColliders));
-auto& projectiles(manager.getGroup(Game::groupProjectiles));
+//auto& colliders(manager.getGroup(Game::groupColliders));
+//auto& projectiles(manager.getGroup(Game::groupProjectiles));
 
 
 void Game::handleEvents() {
@@ -151,8 +154,8 @@ void Game::handleEvents() {
 void Game::update() {
 
 	
-		SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
-		Vector2D playerPos = player.getComponent<TransformComponent>().position;
+		//SDL_Rect playerCol = player.getComponent<ColliderComponent>().collider;
+		//Vector2D playerPos = player.getComponent<TransformComponent>().position;
 
 		if(cnt++ == 20 )
 		{
@@ -162,7 +165,7 @@ void Game::update() {
 
 			ss << "Money: " << playerMoney << " $";
 
-			label.getComponent<UILabel>().SetLabelText(ss.str(), "vgafix");
+			/*label.getComponent<UILabel>().SetLabelText(ss.str(), "vgafix");*/
 			cnt = 0;
 		}
 
@@ -171,15 +174,16 @@ void Game::update() {
 		manager.refresh();
 		manager.update();
 		boutonMarde.update();
-
+		boutonQuit.update();
 		liste.update();
 		listeOwned.update();
+		mainTitle.update();
 }
 
 
 
 void Game::render() {
-	
+	/*std::cout << "Entity count : " << manager.getEntityCount() << std::endl;*/
 	SDL_RenderClear(renderer);
 	////this is where we would add stuff to render  
 	////map->DrawMap();
@@ -199,11 +203,11 @@ void Game::render() {
 	//	p->draw();
 	//}
 
-	label.draw();
-	label3.draw();
-	label2.draw();
-	mainTitlebg.draw();
-	mainTitle.draw();
+	//label.draw();
+	//label3.draw();
+	boutonQuit.draw();
+	//mainTitlebg.draw();
+	//mainTitle.draw();
 
 	//bouton11.draw();
 	//bouton1.draw();
@@ -211,6 +215,7 @@ void Game::render() {
 
 	liste.draw();
 	listeOwned.draw();
+	mainTitle.draw();
 	SDL_RenderPresent(renderer);
 }
 void Game::clean() {
@@ -262,9 +267,9 @@ void Game::menu(const char* title, int width, int height, bool fullscreen)
 
 	assets->AddFont("vgafix", "assets/vgafix.fon", 16);
 	SDL_Color white = { 255, 255, 255, 255 };
-	boutonStart.addComponent<UILabel>(400, 320, "Start", "vgafix", white);
-	boutonStart.getComponent<UILabel>().SetLabelText("Start", "vgafix");
-	startMenu = boutonStart.getComponent<UILabel>().getPosition();
+	//boutonStart.addComponent<UILabel>(400, 320, "Start", "vgafix", white);
+	//boutonStart.getComponent<UILabel>().SetLabelText("Start", "vgafix");
+
 }
 
 float Game::posX(float coefficient)
@@ -280,12 +285,23 @@ float Game::posY(float coefficient)
 	else return height * (coefficient / 100);
 }
 
-bool Game::gameClick(const ListEntry* recA, const SDL_Event& recB) {
+//bool Game::gameClick(const ListEntry* recA, const SDL_Event& recB) {
+//	if (
+//		recA->getComponent<TransformComponent>().position.x + recA->getComponent<TransformComponent>().width >= recB.button.x &&
+//		recB.button.x >= recA->getComponent<TransformComponent>().position.x &&
+//		recA->getComponent<TransformComponent>().position.y + recA->getComponent<TransformComponent>().height >= recB.button.y &&
+//		recB.button.y >= recA->getComponent<TransformComponent>().position.y) {
+//		return true;
+//	}
+//	return false;
+//}
+
+bool Game::gameClick(const TransformComponent* recA, const SDL_Event& recB) {
 	if (
-		recA->getComponent<TransformComponent>().position.x + recA->getComponent<TransformComponent>().width >= recB.button.x &&
-		recB.button.x >= recA->getComponent<TransformComponent>().position.x &&
-		recA->getComponent<TransformComponent>().position.y + recA->getComponent<TransformComponent>().height >= recB.button.y &&
-		recB.button.y >= recA->getComponent<TransformComponent>().position.y) {
+		recA->position.x + recA->width >= recB.button.x &&
+		recB.button.x >= recA->position.x &&
+		recA->position.y + recA->height >= recB.button.y &&
+		recB.button.y >= recA->position.y) {
 		return true;
 	}
 	return false;
@@ -294,36 +310,20 @@ bool Game::gameClick(const ListEntry* recA, const SDL_Event& recB) {
 void Game::gameBuyDog(int index)
 {
 	m_player.buyDog(index);
-<<<<<<< HEAD
 	makePannels();
 	std::stringstream newinc;
 	newinc << m_player.getInc() << "$/sec";
 	boutonMarde.tag.getComponent<UILabel>().SetLabelText(newinc.str(), "vgafix");
-=======
-	listeOwned.move(liste, index);
-	liste.updateContentPosition();
-	listeOwned.updateContentPosition();
-	std::cout << "available list : ";
-	std::cout << "size : " << liste.content.size();
-	for (auto elem : liste.content) {
-		std::cout << elem->content.at(0)->getText() << ", ";
-	}
-	std::cout << std::endl;
-	std::cout << "owned list : ";
-	for (auto elem : listeOwned.content) {
-		std::cout << elem->content.at(0)->getText() << ", ";
-	}
-	std::cout << std::endl;
->>>>>>> refs/remotes/origin/main
+
 }
 
 void Game::manageInput()
 {
 	if (Game::event.type == SDL_MOUSEBUTTONDOWN) {
 		if (Game::event.button.button == SDL_BUTTON_LEFT) {
-			/*if (gameClick(Game::startMenu, Game::event)) Game::isRunning = false;*/
+			if (gameClick(&boutonQuit.bg.getComponent<TransformComponent>(), Game::event)) Game::isRunning = false;
 			for (int i = 0; i < slotList.size(); i++) {
-				if (gameClick(slotList.at(i).source, Game::event)) gameBuyDog(i);
+				if (gameClick(&slotList.at(i).source->getComponent<TransformComponent>(), Game::event)) gameBuyDog(i);
 			}
 		}
 	}
@@ -371,6 +371,8 @@ void Game::makePannels() {
 
 	}
 	listeOwned.init();
+
+
 }
 
 

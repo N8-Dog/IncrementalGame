@@ -71,11 +71,11 @@ public:
 			
 		}
 
-		if (Game::event.type == SDL_MOUSEBUTTONDOWN) {
-			if (Game::event.button.button == SDL_BUTTON_LEFT) {
-				if(Click(Game::startMenu, Game::event)) Game::isRunning = false;
-			}
-		}
+		//if (Game::event.type == SDL_MOUSEBUTTONDOWN) {
+		//	if (Game::event.button.button == SDL_BUTTON_LEFT) {
+		//		if(Click(Game::startMenu, Game::event)) Game::isRunning = false;
+		//	}
+		//}
 
 	}
 	bool Click(const SDL_Rect& recA, const SDL_Event& recB) {
